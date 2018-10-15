@@ -1,0 +1,48 @@
+package dragontest1;
+import java.util.Scanner; // Scanner is in the java.util package
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import java.io.File;
+public class TestSimpleDragonBattleClass {
+
+public static void main(String[] args) {
+System.out.println("Hello.");
+
+// let us begin by making a couple dragons
+// we can do this independently of the battle.
+// we will add the default dragon first.
+SimpleDragonClass computer1 = new SimpleDragonClass();
+
+// now we will add a second dragon for the user.
+Scanner input = new Scanner(System.in);
+System.out.print("Enter a name for your dragon: ");
+String name = input.nextLine();
+//String name = "Bob";
+SimpleDragonClass user1 = new SimpleDragonClass(name);
+
+// Create a SimpleDragonBattleClass object called first battle.
+SimpleDragonBattleClass firstBattle = new SimpleDragonBattleClass();
+
+// Send the dragons to battle
+boolean userWin;
+userWin = firstBattle.simpleBattle(user1, computer1);
+firstBattle.printWinner(userWin);
+
+input.close();
+
+}
+
+public void playSound() {
+    try {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("F:\\Eclipse - Java\\Sounds\\Laser_Gun-Mike_Koenig-1975537935.wav").getAbsoluteFile());
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.start();
+    } catch(Exception ex) {
+        System.out.println("Error with playing sound.");
+        ex.printStackTrace();
+    }
+}
+} 

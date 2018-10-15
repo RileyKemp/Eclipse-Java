@@ -1,0 +1,32 @@
+package dragontest1;
+import java.util.Scanner;
+
+public class TestDragon {
+
+	public static void main(String[] args) {
+		System.out.println("Hello.");
+
+		
+		DragonClass computer1 = new DragonClass();
+
+		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a name for your dragon: ");
+		String name = input.nextLine();
+		//String name = "Bob";
+		DragonClass user1 = new DragonClass();
+
+		// Create a SimpleDragonBattleClass object called first battle.
+		Battle firstBattle = new Battle();
+
+		// Send the dragons to battle
+		boolean userWin;
+		userWin = firstBattle.simpleBattle(user1, computer1);
+		firstBattle.printWinner(userWin);
+
+		System.out.println("Bye.");
+		input.close();
+
+	}
+}
+

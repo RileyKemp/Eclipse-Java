@@ -1,0 +1,39 @@
+package dragontest1;
+
+public class Battle {
+
+	public boolean simpleBattle(DragonClass user1, DragonClass computer1) {
+		boolean userWin = false;
+		System.out.println("Our hero " + user1.getName() + " has health of: " + user1.getHealth());
+		System.out.println("Our opponent " + computer1.getName() + " has health of: " + computer1.getHealth());
+
+		while(user1.getHealth() > 0 && computer1.getHealth()>0) {
+			if(user1.getHealth() > 0) {
+				computer1.Damage(user1.attack());
+			}
+
+			if(computer1.getHealth() > 0) {
+				user1.Damage(computer1.attack());
+			}
+
+
+		}
+		if(user1.getHealth()>0) {
+			userWin = true;
+		}
+		System.out.println("The battle is over.");
+		return userWin;
+	}
+
+	public void printWinner(boolean userWin) {
+		if(userWin) {
+			System.out.println("The user was victorious.");
+		} else {
+			System.out.println("The computer was victorious.");
+		}
+
+	}
+
+
+
+}

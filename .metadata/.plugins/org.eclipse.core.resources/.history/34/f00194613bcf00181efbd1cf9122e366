@@ -1,0 +1,54 @@
+package dragontest1;
+
+import java.util.concurrent.TimeUnit;
+
+public class SimpleDragonBattleClass {
+
+public boolean simpleBattle(SimpleDragonClass user1, SimpleDragonClass computer1) {
+boolean userWin = false;
+String cname = computer1.getName();
+System.out.println("Our hero " + user1.getName() + " has health of: " + user1.getHealth());
+System.out.println("Our opponent " + computer1.getName() + " has health of: " + computer1.getHealth());
+
+while(user1.getHealth() > 0 && computer1.getHealth()> 0) {
+if(user1.getHealth() > 0 && computer1.getHealth() > 0) {
+	int comattack = user1.attack();
+	System.out.println("The Hero, "+user1.getName()+" has taken "+comattack+" damage.");
+computer1.setDamage(comattack);
+try {
+	TimeUnit.SECONDS.sleep(1);
+} catch (InterruptedException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+}
+
+if(computer1.getHealth() > 0 && user1.getHealth() > 0 ) {
+	int heroattack = computer1.attack();
+	System.out.println("The opponent, " + computer1.getName() +" has taken " + heroattack + " damage.");
+	
+user1.setDamage(heroattack);
+
+}
+
+
+}
+if(user1.getHealth()>0) {
+userWin = true;
+}
+System.out.println("The battle is over...");
+return userWin;
+
+}
+
+public void printWinner(boolean userWin) {
+if(userWin) {
+System.out.println("Your dragon was victorious.");
+} else {
+System.out.println("The computer's Dragon was victorious.");
+}
+
+}
+
+
+}

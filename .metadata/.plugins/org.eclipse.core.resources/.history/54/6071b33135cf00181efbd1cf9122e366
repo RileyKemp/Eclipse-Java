@@ -1,0 +1,10 @@
+package dragontest1;
+
+public class TestDragon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

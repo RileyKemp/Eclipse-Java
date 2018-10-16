@@ -4,9 +4,9 @@ import java.util.Random;
 public class SimpleDragonClass {
 	private String name;
 	private int health;
-	/** Construct a Simple default dragon*/
+	/* Construct a Simple default dragon*/
 	public SimpleDragonClass() {
-		this.name = "Lóng";
+		this.name = "Jim";
 		this.health = getInitialHealth();
 
 	}
@@ -21,14 +21,12 @@ public class SimpleDragonClass {
 
 		for(int i = 1; i<=7; i++) {
 			health = health + random1.nextInt(20)+1;
-			
+
 		}
-		
+
 		return health;
 	}
-	public int getHealth() {
-		return this.health;
-	}
+
 
 	public String getName() {
 		return this.name;
@@ -36,12 +34,15 @@ public class SimpleDragonClass {
 
 	public int attack() {
 		Random random2 = new Random();
-		return random2.nextInt(20)+1;
+		int attack = random2.nextInt(20)+1;
+		return attack;
 	}
 
 	public void setDamage(int attack) {
 		this.health = this.health - attack;
 
 	}
-
+	public int getHealth() {
+		return this.health;
+	}
 }

@@ -1,32 +1,29 @@
 package dragontest1;
-import java.util.Scanner; // Scanner is in the java.util package
+import java.util.Scanner; 
 
 public class TestSimpleDragonBattleClass {
 
-public static void main(String[] args) {
-System.out.println("Hello.");
+	public static void main(String[] args) {
 
-// let us begin by making a couple dragons
-// we can do this independently of the battle.
-// we will add the default dragon first.
-SimpleDragonClass computer1 = new SimpleDragonClass();
+		// start by making the CPU dragon
+		SimpleDragonClass computer1 = new SimpleDragonClass();
 
-// now we will add a second dragon for the user.
-Scanner input = new Scanner(System.in);
-System.out.print("Enter a name for your dragon: ");
-String name = input.nextLine();
-//String name = "Bob";
-SimpleDragonClass user1 = new SimpleDragonClass(name);
+		// User made Dragon.
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a name for your dragon: ");
+		String name = input.nextLine();
 
-// Create a SimpleDragonBattleClass object called first battle.
-SimpleDragonBattleClass firstBattle = new SimpleDragonBattleClass();
+		SimpleDragonClass user1 = new SimpleDragonClass(name);
 
-// Send the dragons to battle
-boolean userWin;
-userWin = firstBattle.simpleBattle(user1, computer1);
-firstBattle.printWinner(userWin);
+		// Create a SimpleDragonBattleClass object called first battle.
+		SimpleDragonBattleClass firstBattle = new SimpleDragonBattleClass();
 
-input.close();
+		// use the battle class, determine the outcome.
+		boolean userWin;
+		userWin = firstBattle.simpleBattle(user1, computer1);
+		firstBattle.printWinner(userWin);
 
-}}
+		input.close();
+
+	}}
 
